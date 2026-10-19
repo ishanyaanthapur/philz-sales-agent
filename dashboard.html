@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Philz Coffee Wholesale | Target Dashboard</title>
+  <style>
+    :root {
+      --coffee: #3b211b;
+      --espresso: #241310;
+      --orange: #c96331;
+      --orange-light: #f3a05f;
+      --cream: #fff7e9;
+      --cream-deep: #f6ead4;
+      --green: #6e8660;
+      --ink: #35231e;
+      --muted: #7d6c61;
+      --line: #ead8bd;
+      --white: #fffdf9;
+      --shadow: 0 18px 45px rgba(73, 39, 23, .12);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 8%, rgba(243, 160, 95, .17), transparent 23rem),
+        radial-gradient(circle at 90% 22%, rgba(110, 134, 96, .13), transparent 22rem),
+        var(--cream);
+      font-family: "Trebuchet MS", "Avenir Next", sans-serif;
+      line-height: 1.55;
+    }
+
+    a { color: var(--orange); font-weight: 700; }
+    a:hover { color: var(--coffee); }
+    .wrap { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+
+    header {
+      position: relative;
+      overflow: hidden;
+      color: var(--cream);
+      background: var(--coffee);
+      padding: 28px 0 82px;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      width: 520px; height: 520px;
+      right: -170px; top: -290px;
+      border: 2px solid rgba(255, 247, 233, .13);
+      border-radius: 50%;
+      box-shadow: 0 0 0 35px rgba(255, 247, 233, .05), 0 0 0 70px rgba(255, 247, 233, .035);
+    }
+    nav { display: flex; justify-content: space-between; align-items: center; gap: 18px; position: relative; z-index: 1; }
+    .brand { display: flex; align-items: center; gap: 12px; color: var(--cream); text-decoration: none; }
+    .brand-mark {
+      display: grid; place-items: center; width: 48px; height: 48px;
+      color: var(--coffee); background: var(--orange-light); border-radius: 16px 16px 19px 19px;
+      font: 900 22px Georgia, serif; transform: rotate(-4deg);
+    }
+    .brand strong { display: block; font: 900 22px Georgia, serif; letter-spacing: -.03em; }
+    .brand small { color: #e6cdb4; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+    .nav-link { color: var(--cream); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.5); font-size: 14px; }
+
+    .hero { position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 50px; padding-top: 68px; }
+    .eyebrow { color: var(--orange-light); font-size: 12px; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; }
+    h1 { max-width: 700px; margin: 12px 0 18px; font: 900 clamp(42px, 6vw, 76px)/.96 Georgia, "Times New Roman", serif; letter-spacing: -.055em; }
+    .hero p { max-width: 590px; color: #f0ddc7; font-size: 18px; }
+    .coffee-art { justify-self: end; position: relative; width: 260px; height: 225px; }
+    .coffee-art .steam { position: absolute; top: 4px; color: #e6cdb4; font: 700 42px Georgia, serif; transform: rotate(10deg); }
+    .coffee-art .steam.one { left: 62px; } .coffee-art .steam.two { left: 126px; top: -12px; transform: rotate(-7deg); }
+    .cup { position: absolute; left: 32px; bottom: 20px; width: 185px; height: 112px; background: var(--orange-light); border-radius: 18px 18px 62px 62px; border: 8px solid var(--cream); box-shadow: inset 0 14px 0 #5a3024; }
+    .cup::after { content: ""; position: absolute; right: -43px; top: 28px; width: 47px; height: 52px; border: 8px solid var(--cream); border-left: 0; border-radius: 0 35px 35px 0; }
+    .bean { position: absolute; right: 12px; bottom: 2px; width: 42px; height: 58px; background: var(--green); border-radius: 55% 45% 55% 45%; transform: rotate(32deg); }
+    .bean::after { content: ""; position: absolute; left: 19px; top: 5px; width: 3px; height: 48px; background: #d2dfc0; border-radius: 50%; transform: rotate(17deg); }
+
+    main { padding: 0 0 70px; }
+    .seller-card { position: relative; margin-top: -42px; z-index: 3; display: grid; grid-template-columns: 1.1fr 1fr; gap: 24px; background: var(--white); border: 1px solid rgba(234,216,189,.8); border-radius: 28px; padding: 28px; box-shadow: var(--shadow); }
+    .seller-card h2, .section-heading h2 { margin: 5px 0 10px; font: 900 32px/1.05 Georgia, serif; letter-spacing: -.04em; }
+    .seller-card p { margin: 0 0 13px; color: var(--muted); }
+    .seller-meta { display: flex; flex-wrap: wrap; gap: 9px; align-content: start; }
+    .pill { display: inline-flex; align-items: center; gap: 6px; padding: 9px 13px; color: var(--coffee); background: var(--cream-deep); border-radius: 99px; font-size: 13px; font-weight: 800; }
+    .pill.green { color: #3d5d39; background: #e6efdf; }
+    .profile-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 18px; }
+    .mini-card { padding: 18px; background: rgba(255,253,249,.82); border: 1px solid var(--line); border-radius: 18px; }
+    .mini-card strong { display: block; color: var(--orange); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; }
+    .mini-card span { display: block; margin-top: 6px; font-size: 14px; }
+
+    .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin: 66px 0 22px; }
+    .section-heading p { max-width: 510px; margin: 0; color: var(--muted); }
+    .target-list { display: grid; gap: 16px; }
+    details.target { overflow: hidden; background: var(--white); border: 1px solid var(--line); border-radius: 23px; box-shadow: 0 8px 24px rgba(73,39,23,.06); }
+    details.target[open] { border-color: var(--orange-light); box-shadow: var(--shadow); }
+    summary { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 22px 25px; cursor: pointer; list-style: none; }
+    summary::-webkit-details-marker { display: none; }
+    .target-title { display: flex; align-items: center; gap: 16px; min-width: 0; }
+    .target-number { flex: 0 0 42px; display: grid; place-items: center; width: 42px; height: 42px; color: var(--cream); background: var(--coffee); border-radius: 50%; font: 900 19px Georgia, serif; }
+    .target-title h3 { margin: 0; color: var(--coffee); font: 900 25px Georgia, serif; }
+    .target-title small { display: block; margin-top: 3px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .fit { flex: 0 0 auto; padding: 7px 12px; color: #395531; background: #e6efdf; border-radius: 99px; font-weight: 900; }
+    .chevron { flex: 0 0 auto; width: 30px; height: 30px; display: grid; place-items: center; color: var(--orange); border: 1px solid var(--orange-light); border-radius: 50%; font-size: 20px; transition: transform .2s ease; }
+    details[open] .chevron { transform: rotate(180deg); }
+    .target-body { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; padding: 0 25px 27px; }
+    .target-body section { padding: 20px; background: var(--cream); border-radius: 17px; }
+    .target-body section.full { grid-column: 1 / -1; }
+    .target-body h4 { margin: 0 0 8px; color: var(--orange); font-size: 12px; letter-spacing: .13em; text-transform: uppercase; }
+    .target-body p { margin: 0; color: #5f4a40; font-size: 14px; }
+    .target-body ul { margin: 0; padding-left: 19px; color: #5f4a40; font-size: 14px; }
+    .email { white-space: pre-line; color: var(--coffee) !important; font-family: "Trebuchet MS", sans-serif; }
+    .source-list { display: flex; flex-wrap: wrap; gap: 8px; }
+    .source-list a { display: inline-block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding: 5px 9px; background: var(--white); border-radius: 8px; font-size: 12px; }
+    footer { margin-top: 66px; padding: 26px 0; color: #dfc8b1; background: var(--espresso); font-size: 13px; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 18px; }
+
+    @media (max-width: 780px) {
+      .wrap { width: min(100% - 26px, 620px); }
+      .hero, .seller-card { grid-template-columns: 1fr; }
+      .hero { padding-top: 48px; }
+      .coffee-art { justify-self: center; transform: scale(.84); margin: -10px 0 -20px; }
+      .profile-grid { grid-template-columns: 1fr; }
+      .section-heading { display: block; }
+      .section-heading p { margin-top: 10px; }
+      .target-body { grid-template-columns: 1fr; }
+      .target-body section.full { grid-column: auto; }
+      summary { padding: 18px; }
+      .target-body { padding: 0 18px 19px; }
+      .target-title h3 { font-size: 20px; }
+      .fit { display: none; }
+      footer .wrap { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="https://philzcoffee.com/" target="_blank" rel="noreferrer">
+          <span class="brand-mark">P</span>
+          <span><strong>Philz Coffee</strong><small>Wholesale studio</small></span>
+        </a>
+        <a class="nav-link" href="https://philzcoffee.com/wholesale" target="_blank" rel="noreferrer">Visit wholesale ↗</a>
+      </nav>
+      <div class="hero">
+        <div>
+          <div class="eyebrow">A warm introduction to promising partners</div>
+          <h1>Good coffee finds good company.</h1>
+          <p>A quick, friendly view of Philz Coffee’s wholesale story, the best-fit business targets, and the thoughtful first notes prepared for each one.</p>
+        </div>
+        <div class="coffee-art" aria-label="Illustration of a cup of coffee" role="img"><span class="steam one">~</span><span class="steam two">~</span><span class="cup"></span><span class="bean"></span></div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="seller-card" aria-labelledby="seller-heading">
+      <div>
+        <div class="eyebrow">The wholesaler</div>
+        <h2 id="seller-heading">Philz Coffee</h2>
+        <p>Specialty coffee retailer and roaster offering handcrafted customized blends, packaged coffee, subscriptions, and wholesale programs.</p>
+        <a href="https://philzcoffee.com/wholesale" target="_blank" rel="noreferrer">Explore the Philz wholesale program ↗</a>
+      </div>
+      <div class="seller-meta" aria-label="Philz Coffee profile highlights">
+        <span class="pill">☕ Handcrafted coffee</span>
+        <span class="pill green">♧ Sustainably sourced</span>
+        <span class="pill">✦ Offices</span>
+        <span class="pill">✦ Special occasions</span>
+        <span class="pill green">⌂ California + Chicago</span>
+        <span class="pill">✉ wholesale@philzcoffee.com</span>
+      </div>
+    </section>
+
+    <section class="profile-grid" aria-label="Seller profile facts">
+      <div class="mini-card"><strong>Best use case</strong><span>Office coffee, grocery placement, and special occasions</span></div>
+      <div class="mini-card"><strong>Brand promise</strong><span>Warmth, sincerity, care, and customized coffee</span></div>
+      <div class="mini-card"><strong>Important note</strong><span>Wholesale arrangements must not involve coffee brewed for resale</span></div>
+    </section>
+
+    <div class="section-heading">
+      <div><div class="eyebrow">The shortlist</div><h2>Three promising cups to fill</h2></div>
+      <p>Open any card to see the fit, evidence, contact route, and a ready-to-review introduction. Each card works independently.</p>
+    </div>
+
+    <section class="target-list" id="targets" aria-label="Customer targets">
+      <details class="target">
+        <summary><span class="target-title"><span class="target-number">1</span><span><h3>Genentech</h3><small>https://www.gene.com</small></span></span><span class="fit">83% fit</span><span class="chevron">⌄</span></summary>
+        <div class="target-body">
+          <section><h4>Why it fits</h4><p>Strong workplace-scale prospect with explicit cafeteria and amenity evidence and a published supplier route. The exact coffee decision-maker and current coffee contract are not publicly verified.</p></section>
+          <section><h4>Business context</h4><p>Genentech’s South San Francisco campus has more than 40 buildings, cafeteria locations, and workforce amenities. A relevant Philz use case is office coffee or hosted meetings and events.</p></section>
+          <section><h4>Contact</h4><p><strong>Email:</strong> <a href="mailto:p2psupport-d@gene.com">p2psupport-d@gene.com</a><br><strong>Suggested route:</strong> Supplier Relations → Workplace Services, Facilities, or Food Services<br><strong>Phone:</strong> 650-225-1000</p></section>
+          <section><h4>Criteria met</h4><ul><li>South San Francisco service-area fit</li><li>Large campus with recurring traffic</li><li>Cafeteria and amenity evidence</li><li>Published supplier pathway</li><li>Office or special-occasion use case</li></ul></section>
+          <section class="full"><h4>Draft outreach email</h4><p class="email">Hello Genentech Supplier Relations team,
+
+Philz Coffee’s wholesale program supports offices and special occasions, and I’m reaching out regarding Genentech’s South San Francisco campus. Your campus spans more than 40 buildings and includes cafeteria locations and other workforce amenities, so I wanted to ask who manages coffee sourcing for Workplace Services, Facilities, or Food Services.
+
+We could explore a Philz program for hosted meetings, employee gatherings, or approved office service using Philz’s handcrafted coffee and customized blends. We would tailor the conversation to Genentech’s supplier requirements and would not propose a resale arrangement.
+
+Would you please route this to the appropriate campus hospitality or procurement contact? I’d be glad to send a concise program overview and sample options.
+
+Best,
+Philz Coffee Wholesale
+wholesale@philzcoffee.com</p></section>
+          <section class="full"><h4>Supporting sources</h4><div class="source-list"><a href="https://www.gene.com/contact-us/visit-us/ssf" target="_blank" rel="noreferrer">Campus visit ↗</a><a href="https://www.gene.com/about-us/suppliers/supplier-relations-faqs" target="_blank" rel="noreferrer">Supplier FAQ ↗</a><a href="https://www.gene.com/contact-us/call-us" target="_blank" rel="noreferrer">Contact ↗</a><a href="https://philzcoffee.com/wholesale" target="_blank" rel="noreferrer">Philz wholesale ↗</a></div></section>
+        </div>
+      </details>
+
+      <details class="target">
+        <summary><span class="target-title"><span class="target-number">2</span><span><h3>Stanford University</h3><small>https://www.stanford.edu</small></span></span><span class="fit">83% fit</span><span class="chevron">⌄</span></summary>
+        <div class="target-body">
+          <section><h4>Why it fits</h4><p>Very strong event-and-coffee use-case match with active university catering, public decision-maker contacts, and explicit sustainability and budget language. This is an approved-vendor opportunity, not an assumed replacement.</p></section>
+          <section><h4>Business context</h4><p>Stanford Catering supports board meetings, high-touch coffee services, receptions, and large academic conferences. It offers customized menus, local and sustainable sourcing, and budget-aligned options.</p></section>
+          <section><h4>Contact</h4><p><strong>Email:</strong> <a href="mailto:stanford_catering@stanford.edu">stanford_catering@stanford.edu</a><br><strong>Suggested route:</strong> Stanford Catering coffee sourcing and approved vendors</p></section>
+          <section><h4>Criteria met</h4><ul><li>Stanford/Palo Alto service-area fit</li><li>High event and customer traffic</li><li>High-touch coffee service evidence</li><li>Public catering email and named contacts</li><li>Customized, sustainable, budget-aware options</li></ul></section>
+          <section class="full"><h4>Draft outreach email</h4><p class="email">Hello Stanford Catering team,
+
+I saw that Stanford Catering supports everything from intimate board meetings and high-touch coffee services to large academic conferences. Philz Coffee’s wholesale program may be a useful option for selected hosted events or special occasions where a handcrafted, customized coffee experience would complement the menu.
+
+Philz is also an experience-led brand with a focus on customized coffee and sustainable sourcing. We would be happy to discuss packaged coffee or approved event-service formats that fit Stanford’s policies, budget, and existing catering model—not coffee brewed for resale.
+
+Would the catering team be open to a brief introduction, or could you point me to the person responsible for coffee sourcing and approved vendors?
+
+Best,
+Philz Coffee Wholesale
+wholesale@philzcoffee.com</p></section>
+          <section class="full"><h4>Supporting sources</h4><div class="source-list"><a href="https://rde.stanford.edu/dining-hospitality/stanford-catering" target="_blank" rel="noreferrer">Stanford Catering ↗</a><a href="https://philzcoffee.com/wholesale" target="_blank" rel="noreferrer">Philz wholesale ↗</a></div></section>
+        </div>
+      </details>
+
+      <details class="target">
+        <summary><span class="target-title"><span class="target-number">3</span><span><h3>UCSF</h3><small>https://www.ucsf.edu</small></span></span><span class="fit">67% fit</span><span class="chevron">⌄</span></summary>
+        <div class="target-body">
+          <section><h4>Why it fits</h4><p>Good local event and institutional fit with public conference-services contacts. The existing primary catering partner and limited crawlable content make this a lower-confidence target.</p></section>
+          <section><h4>Business context</h4><p>UCSF operates multiple San Francisco campuses and identifies conference and event services, catering options, and Moffitt Catering. The best opening is approved coffee service for meetings or special occasions, not resale.</p></section>
+          <section><h4>Contact</h4><p><strong>Email:</strong> <a href="mailto:Conference.Services@ucsf.edu">Conference.Services@ucsf.edu</a><br><strong>Approval route:</strong> <a href="mailto:CoveredServices@ucsf.edu">CoveredServices@ucsf.edu</a></p></section>
+          <section><h4>Criteria met</h4><ul><li>San Francisco service-area fit</li><li>Multi-campus workplace and event environment</li><li>Conference, catering, and event evidence</li><li>Public conference-services email</li><li>Office or special-occasion wholesale use case</li></ul></section>
+          <section class="full"><h4>Draft outreach email</h4><p class="email">Hello UCSF Conference and Event Services,
+
+I’m reaching out because UCSF supports conferences and events across its San Francisco locations, with catering options coordinated through Campus Life Services. Philz Coffee’s wholesale program serves offices and special occasions, and we’d like to explore whether Philz could support selected UCSF meetings, receptions, or hosted events.
+
+We understand UCSF has an existing primary catering partner and that outside catering may require approval. Our goal would be to understand the approved-vendor process and identify an appropriate, non-resale format—such as packaged coffee or Philz service for qualifying events.
+
+Could you point me to the person who manages coffee vendors or catering approvals? I can send a short overview with service formats and ordering information.
+
+Best,
+Philz Coffee Wholesale
+wholesale@philzcoffee.com</p></section>
+          <section class="full"><h4>Supporting sources</h4><div class="source-list"><a href="https://catalog.ucsf.edu/university/campus-life-services/" target="_blank" rel="noreferrer">Campus services ↗</a><a href="https://campuslifeserviceshome.ucsf.edu/conference-services/catering" target="_blank" rel="noreferrer">Conference catering ↗</a><a href="https://nutrition.ucsf.edu/moffitt-catering" target="_blank" rel="noreferrer">Moffitt Catering ↗</a><a href="https://philzcoffee.com/wholesale" target="_blank" rel="noreferrer">Philz wholesale ↗</a></div></section>
+        </div>
+      </details>
+    </section>
+  </main>
+
+  <footer><div class="wrap"><span>Prepared for Philz Coffee wholesale research · Drafts only</span><a href="https://philzcoffee.com/wholesale" target="_blank" rel="noreferrer">philzcoffee.com/wholesale ↗</a></div></footer>
+</body>
+</html>

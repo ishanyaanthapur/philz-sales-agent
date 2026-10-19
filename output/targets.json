@@ -1,0 +1,87 @@
+[
+  {
+    "company_name": "Genentech",
+    "company_website": "https://www.gene.com",
+    "fit_percentage": 83.0,
+    "criteria_evaluated": [
+      "Within Philz California service area",
+      "Large workplace/campus with recurring employee and visitor traffic",
+      "Evidence of food-service or coffee amenity need",
+      "Public business/procurement contact available",
+      "Potential supplier/procurement pathway",
+      "Opportunity can be framed for office or special-occasion service rather than coffee resale"
+    ],
+    "criteria_met": [
+      "Within Philz California service area: South San Francisco",
+      "Large campus: more than 40 buildings housing research, manufacturing, and business functions",
+      "Campus page references cafeteria locations and other amenities",
+      "Supplier FAQ and official contact routes provide a procurement pathway",
+      "Philz wholesale program explicitly serves offices and special occasions"
+    ],
+    "business_context": "Genentech\u2019s South San Francisco campus has more than 40 buildings and provides cafeteria locations and other amenities for visitors and workforce. Genentech publishes supplier-relations resources and routes supplier inquiries through its procurement support channel; lobby services can be reached at 650-225-1000. A relevant Philz use case is office coffee or hosted meetings/events, subject to Genentech approval and Philz\u2019s no-resale limitation.",
+    "contact_email": "p2psupport-d@gene.com",
+    "evidence_sources": [
+      "https://www.gene.com/contact-us/visit-us/ssf",
+      "https://www.gene.com/about-us/suppliers/supplier-relations-faqs",
+      "https://www.gene.com/contact-us/call-us",
+      "https://philzcoffee.com/wholesale"
+    ],
+    "fit_rationale": "Strong workplace-scale prospect with explicit cafeteria/amenity evidence and a published supplier route. The exact coffee decision-maker and current coffee contract are not publicly verified, so outreach should ask procurement to route the inquiry to Workplace Services, Facilities, or Food Services."
+  },
+  {
+    "company_name": "Stanford University",
+    "company_website": "https://www.stanford.edu",
+    "fit_percentage": 83.0,
+    "criteria_evaluated": [
+      "Within Philz California service area",
+      "High customer/workplace/event traffic",
+      "Hospitality or food-and-beverage operations",
+      "Public contact email for coffee/event service",
+      "Purchasing or recurring service signal",
+      "Brand and sustainability alignment"
+    ],
+    "criteria_met": [
+      "Within Philz California service area: Stanford/Palo Alto",
+      "Stanford Catering serves events from board meetings to large academic conferences",
+      "Stanford Catering explicitly offers high-touch coffee services",
+      "Public catering email and named catering contacts are listed",
+      "Catering page describes customized menus, local/sustainable sourcing, and budget-aligned options"
+    ],
+    "business_context": "Stanford Catering has provided university catering for more than 20 years and serves board meetings, coffee services, receptions, and large academic conferences. Its official page lists stanford_catering@stanford.edu and multiple catering leaders. Philz could be relevant for packaged coffee, hosted special-occasion service, or an approved-vendor conversation; confirm Stanford\u2019s approved-vendor rules and avoid proposing coffee brewed for resale.",
+    "contact_email": "stanford_catering@stanford.edu",
+    "evidence_sources": [
+      "https://rde.stanford.edu/dining-hospitality/stanford-catering",
+      "https://philzcoffee.com/wholesale"
+    ],
+    "fit_rationale": "Very strong event-and-coffee use-case match with an active university catering operation, public decision-maker contacts, and explicit sustainability/budget language. Existing Stanford Catering means this is a partnership or approved-vendor opportunity, not an assumed replacement."
+  },
+  {
+    "company_name": "University of California, San Francisco (UCSF)",
+    "company_website": "https://www.ucsf.edu",
+    "fit_percentage": 67.0,
+    "criteria_evaluated": [
+      "Within Philz California service area",
+      "Multi-campus workplace and event environment",
+      "Hospitality, catering, or conference-services evidence",
+      "Public contact email available",
+      "Potential supplier or special-event purchasing need",
+      "Fit with office/special-occasion wholesale use case"
+    ],
+    "criteria_met": [
+      "Within Philz California service area: San Francisco",
+      "Official search-discovered UCSF pages identify multiple San Francisco campuses and conference/event services",
+      "Official UCSF contact route includes Conference.Services@ucsf.edu",
+      "UCSF\u2019s official information identifies catering options and a primary full-service catering partner",
+      "Philz wholesale program serves offices and special occasions"
+    ],
+    "business_context": "UCSF operates multiple San Francisco campuses and official university information identifies Conference and Event Services, catering options, and Moffitt Catering. The relevant route is Conference.Services@ucsf.edu; UCSF also publishes CoveredServices@ucsf.edu for approval when another caterer is needed. Position Philz for approved coffee service at meetings or special occasions, not resale.",
+    "contact_email": "Conference.Services@ucsf.edu",
+    "evidence_sources": [
+      "https://catalog.ucsf.edu/university/campus-life-services/",
+      "https://campuslifeserviceshome.ucsf.edu/conference-services/catering",
+      "https://nutrition.ucsf.edu/moffitt-catering",
+      "https://philzcoffee.com/wholesale"
+    ],
+    "fit_rationale": "Good local event and institutional fit with public conference-services contacts, but the existing primary catering partner and limited crawlable page content make this a lower-confidence target. Qualify approved-vendor requirements before pursuing."
+  }
+]
