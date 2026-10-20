@@ -1,6 +1,8 @@
 # Philz Coffee Wholesale Sales Agent
 
-An AI sales-research agent built for MGT 409 (AI Fundamentals, Yale SOM), Homework 2.
+An AI sales-research agent that does a sales rep's first pass: it learns what a seller offers, finds and verifies likely business customers, and drafts tailored outreach for each one.
+
+**[See the project write-up in my portfolio →](https://ishanya-anthapur.vercel.app/#sales)**
 
 The agent works for the wholesale side of [Philz Coffee](https://philzcoffee.com/wholesale). It does two things:
 
